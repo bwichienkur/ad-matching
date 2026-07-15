@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+option csharp_namespace = "EDDY.IS.AdMatching.Service";
+
+package Catalogs;
+
+// The Definition of the Ads Service
+service Campaings {
+  // Sends a greeting
+  rpc getCampaings (CampaingsRequest) returns (CampaingsResponse);
+}
+
+// Campaings Messages
+message CampaingsRequest {
+	
+	string transactionGUID=1;
+	string placementGUID=2;
+    string ipAdress=3;
+    int32 localHour=4;
+    string placementId=5;
+    string sub1=6;
+    string sub2=7;
+    string sub_=8;
+    string sub4=9;
+    string ua=10;
+    string url=11;
+    int32 maxAdds=13;
+    string uaClass=14;
+
+}
+
+message CampaingsResponse {
+	
+	string transactionGUID=1;
+	string placementGUID=2;
+    string ipAdress=3;
+    int32 localHour=4;
+    string placementId=5;
+    string sub1=6;
+    string sub2=7;
+    string sub_=8;
+    string sub4=9;
+    string ua=10;
+    string url=11;
+    int32 maxAdds=13;
+    string uaClass=14;
+
+}
+
+service adGroup {
+  // Sends a greeting
+  rpc getAdGroup (adGroupsRequest) returns (adGroupsResponse);
+}
+
+// adGroups Messages
+message adGroupsRequest {
+	
+	string transactionGUID=1;
+	string placementGUID=2;
+    string ipAdress=3;
+    int32 localHour=4;
+    string placementId=5;
+    string sub1=6;
+    string sub2=7;
+    string sub_=8;
+    string sub4=9;
+    string ua=10;
+    string url=11;
+    int32 maxAdds=13;
+    string uaClass=14;
+
+}
+
+message adGroupsResponse {
+	
+	string transactionGUID=1;
+	string placementGUID=2;
+    string ipAdress=3;
+    int32 localHour=4;
+    string placementId=5;
+    string sub1=6;
+    string sub2=7;
+    string sub_=8;
+    string sub4=9;
+    string ua=10;
+    string url=11;
+    int32 maxAdds=13;
+    string uaClass=14;
+
+}
+
+
+
+service Account {
+  // Sends a greeting
+  rpc getAccount (accountRequest) returns (accountResponse);
+}
+
+// Acccount Request
+message accountRequest {
+	
+	string transactionGUID=1;
+	string placementGUID=2;
+    string ipAdress=3;
+    int32 localHour=4;
+    string placementId=5;
+    string sub1=6;
+    string sub2=7;
+    string sub_=8;
+    string sub4=9;
+    string ua=10;
+    string url=11;
+    int32 maxAdds=13;
+    string uaClass=14;
+
+}
+
+message accountResponse {
+	
+	string transactionGUID=1;
+	string placementGUID=2;
+    string ipAdress=3;
+    int32 localHour=4;
+    string placementId=5;
+    string sub1=6;
+    string sub2=7;
+    string sub_=8;
+    string sub4=9;
+    string ua=10;
+    string url=11;
+    int32 maxAdds=13;
+    string uaClass=14;
+
+}

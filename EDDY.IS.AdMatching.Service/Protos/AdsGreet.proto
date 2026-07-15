@@ -1,0 +1,118 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "EDDY.IS.AdMatching.Service";
+
+package Ads;
+
+// The Definition of the Ads Service
+service Ads {
+  // Sends a greeting
+  rpc AdMatchingServiceInvoke (getAdMatchingRequest) returns (getAdMatchingResponse);
+  rpc AdStaticMatchingServiceInvoke (getAdMatchingRequest) returns (getAdMatchingResponse);
+  rpc EddyAdsListingServiceInvoke(getEddyAdsListingRequest) returns (getEddyAdsListingResponse);
+}
+
+//Request message for the Ad Aggregator
+message getAdMatchingRequest{
+    map<string,string> Parameters = 1;
+    string PlacementGuid=2;
+    string SearchGuid=3;
+    string SessionGuid = 4;
+    int32  MaxAds=5;
+    int32 SourceId = 6;
+    int32 MarketingUnit = 7;
+    int32 Channel = 8;
+
+    int32 SubChannel = 9;
+    string StaticAdGuid = 10;
+    repeated string PreExcludeInstitutions = 11;
+}
+
+//Response message for the Ad Aggregator
+message getAdMatchingResponse{
+    message AdsMatchedResponse{
+        int32 adId = 1;
+        string adName = 2;
+        string adDescription = 3;
+        string adHeader = 4;
+        string adClickUrl = 5;
+        string adDisplayUrl = 6;
+        int32 campaignId = 7;
+        string institutionName = 8;
+        string originalImageURL = 9;
+        string smallImageURL = 10;
+        string mediumImageURL = 11;
+        string largeImageURL = 12;
+        double realCPC = 13;
+        double boostedCPC = 14;
+        int32 clientAdAccountId = 15;
+        int32 adGroupId=16;
+        string popularPrograms=17;
+        int32 productTypeId=18;
+        string clientToken=19;
+        int32 CRId=20;
+    }
+    string message = 1;
+    repeated AdsMatchedResponse adsMatched = 2;
+    int32 adsReturned = 3;
+}
+
+//Request message for the Matching Engine
+message getEddyAdsListingRequest{
+    int32 MaxAds = 1;
+    string TrackId = 2;
+    string PlacementViewGuid = 3;
+    int32 MaxPrograms = 4;
+    double ConversionRate = 5;
+    string WidgetName = 6;
+    string WidgetRequestGuid = 7;
+    map<string, string> Parameters = 8;
+    int32 ApplicationId = 9;
+    repeated string DuplicateForInstitutionList = 10;
+    string LeadInitiatingUrl = 11;
+}
+
+message getEddyAdsListingResponse{
+    message EddyVendorAd{
+         message EddyVendorAdLink{
+            string ClickURL = 1;
+            string Name = 2;
+            string Description = 3;
+        }    
+        message Program{
+            int32 Id = 1;
+            string Name = 2;
+        }
+        message Address{
+            string Street1 = 1;
+            string Street2 = 2;
+            string City = 3;
+            string PostalCode = 4;
+            string State = 5;
+            string Country = 6;
+        }
+        string institutionName = 1;
+        string ClickURL = 2;
+        string Header = 3;
+        string Description = 4;
+        string LargeImageURL = 5;
+        string MediumImageURL = 6;
+        string SmallImageURL = 7;
+        double CPC = 8;
+        double EstimatedRevShare = 9;
+        string Pixel = 10;
+        repeated EddyVendorAdLink AdLinks = 11;
+        repeated Program Programs = 12;
+        Address Addres = 13;
+        string CampusName = 14;
+        string CampusType = 15;
+        int32 CRId=16;
+    }
+    bool Success = 1;
+    int32 AdsCount = 2;
+    repeated EddyVendorAd Ads = 3;
+    string MatchingEngineGuid = 4;
+    int32 MatchingEngineCount = 5;
+    int32 PreMatchCount = 6;
+    string Message = 7;
+}

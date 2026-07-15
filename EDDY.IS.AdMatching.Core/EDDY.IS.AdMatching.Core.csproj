@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Auxiliary\DataManager.cs" />
+    <Compile Remove="Engines\RulesEvaluator.cs" />
+    <Compile Remove="Logging\CoreException.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="GeoTimeZone" Version="4.1.0" />
+	<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.0.1" />
+	<PackageReference Include="NLog.Appsettings.Standard" Version="2.1.0" />
+	<PackageReference Include="NLog.Database" Version="5.0.1" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.0.1" />
+	<PackageReference Include="NLog.Web.AspNetCore" Version="5.1.0" />
+	<PackageReference Include="StackExchange.Redis" Version="2.6.66" />
+	<PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EDDY.IS.AdMatching.Data\EDDY.IS.AdMatching.Data.csproj" />
+    <ProjectReference Include="..\EDDY.IS.AdMatching.Domain\EDDY.IS.AdMatching.Domain.csproj" />
+    <ProjectReference Include="..\EDDY.IS.AdMatching.Repositories\EDDY.IS.AdMatching.Repositories.csproj" />
+    <ProjectReference Include="..\EDDY.IS.RuleEngine\EDDY.IS.RuleEngine.csproj" />
+  </ItemGroup>
+
+</Project>

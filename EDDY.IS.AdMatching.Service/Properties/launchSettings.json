@@ -1,0 +1,48 @@
+{
+  "profiles": {
+    "EDDY.IS.AdMatching.Service": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:6080;https://localhost:60443",
+      "dotnetRunMessages": "true"
+    },
+    "EDDY.IS.AdMatching.Service-Staging": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      },
+      "applicationUrl": "http://ams.gp15.educationdynamics.local:80;https://ams.gp15.educationdynamics.local:443",
+      "dotnetRunMessages": "true"
+    },
+    "EDDY.IS.AdMatching.Service-dryrun": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Dryrun",
+        "ASPNETCORE_DETAILEDERRORS": "1",
+        "ASPNETCORE_SHUTDOWNTIMEOUTSECONDS": "3"
+      },
+      "applicationUrl": "http://ams.dryrun.educationdynamics.local:80;https://ams.dryrun.educationdynamics.local:443",
+      "dotnetRunMessages": true
+    },
+    "EDDY.IS.AdMatching.Service-Production": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "ASPNETCORE_DETAILEDERRORS": "1",
+        "ASPNETCORE_SHUTDOWNTIMEOUTSECONDS": "3"
+      },
+      "applicationUrl": "http://ams.educationdynamics.com:80;https://ams.educationdynamics.com:443",
+      "dotnetRunMessages": true
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}

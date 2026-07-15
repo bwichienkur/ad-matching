@@ -1,0 +1,53 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "EDDY.IS.AdMatching.Service";
+
+package Ads;
+
+// The Definition of the Ads Service
+service Ads {
+  // Sends a greeting
+  rpc AdMatchingServiceInvoke (getAdMatchingRequest) returns (getAdMatchingResponse);
+}
+
+
+//Request message for the Ad Aggregator
+message getAdMatchingRequest{
+    map<string,string> Parameters = 1;
+    string PlacementGuid=2;
+    string SearchGuid=3;
+    string SessionGuid = 4;
+    int32  MaxAds=5;
+    int32 SourceId = 6;
+    int32 MarketingUnit = 7;
+    int32 Channel = 8;
+    int32 SubChannel = 9;
+    map<string,string> DynamicParameters = 10;
+}
+
+//Response message for the Ad Aggregator
+message getAdMatchingResponse{
+    message AdsMatchedResponse{
+        int32 adId = 1;
+        string adName = 2;
+        string adDescription = 3;
+        string adHeader = 4;
+        string adClickUrl = 5;
+        string adDisplayUrl = 6;
+        int32 campaignId = 7;
+        int32 vendorId = 8;
+        string vendorName = 9;
+        string institutionName = 10;
+        string originalImageURL = 11;
+        string smallImageURL = 12;
+        string mediumImageURL = 13;
+        string largeImageURL = 14;
+        double realCPC = 15;
+        double boostedCPC = 16;
+        int32 lineItemId = 17;
+        string lineItemName = 18;
+    }
+    string message = 1;
+    repeated AdsMatchedResponse adsMatched = 2;
+    int32 adsReturned = 3;
+}
